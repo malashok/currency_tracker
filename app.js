@@ -128,12 +128,10 @@ const checkRateAndSendEmails = async () => {
                     text: `USD: ${currentRate} UAH`
                 };
 
-                // for (let subscriber of subscribers) {
-                //     mailOptions.to = subscriber.email;
-                //     await transporter.sendMail(mailOptions);
-                // }
-
-                console.log('Letters were sent successfully');
+                for (let subscriber of subscribers) {
+                    mailOptions.to = subscriber.email;
+                    await transporter.sendMail(mailOptions);
+                }
             }
         }
     } catch (error) {
